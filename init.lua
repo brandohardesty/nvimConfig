@@ -1,4 +1,3 @@
-
 local indent = 4
 vim.cmd("set number")
 vim.opt.matchpairs = {"(:)","{:}","[:]","<:>"}
@@ -56,6 +55,7 @@ require('pckr').add{
  'nvim-lua/plenary.nvim';
  'nvim-telescope/telescope.nvim';
  'akinsho/bufferline.nvim';
+ 'windwp/nvim-autopairs';
  
  -- 'foo1/bar1.nvim';
  -- 'foo2/bar2.nvim';
@@ -200,6 +200,7 @@ local cmp = require'cmp'
 
 
 
+require'nvim-web-devicons'.get_icons()
 
 
 require('lualine').setup {
@@ -335,6 +336,8 @@ offsets = {
 }
 }
 
+require("nvim-autopairs").setup {}
+
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -344,3 +347,4 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.keymap.set('n','gb','<Cmd>BufferLinePick<CR>',{silent=true})
 vim.keymap.set('n','gD','<Cmd>BufferLinePickClose<CR>',{silent=true})
+vim.keymap.set('n', '<C-n>', '<Cmd>BufferLineCycleNext<CR>',{silent=true})
